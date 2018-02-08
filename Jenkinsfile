@@ -4,13 +4,14 @@ pipeline {
     stage ('First') {
       steps {
           echo "inside steps"
-      }
       
-      script {
-          def poUser = getConsumer 'Pipeline Object User'
-          def hey = helloWorld 'Object to be Used'
+      
+          script {
+            def poUser = getConsumer 'Pipeline Object User'
+            def hey = helloWorld 'Object to be Used'
           
-          poUser.consumeResponseContent(hey)
+            poUser.consumeResponseContent(hey)
+        }
       }
     }
   }
